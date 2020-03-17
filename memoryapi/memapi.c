@@ -204,8 +204,10 @@ LIB_EXPORT char* mem_read_view(mem_mapview_p view, size_t *read) {
     __try {
         DWORD len = *((LPDWORD) view->data);
         char* ret = (char*)malloc(sizeof(char) * len);
-        for(int i=0;i<read;i++) {
-            ret[i] = ((char*)(view->data))[i];
+        int offset = sizeof(DWORD) / sizeof(char);
+        for(int i=offset;i<len;i++) {
+            char byte = ((char*)(view->data))[i];
+            ret[i] = byte;
         }
         *read = len;
         return ret;
