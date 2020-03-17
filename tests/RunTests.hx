@@ -29,32 +29,32 @@ class BasicTest {
 	var view:mem.MapView;
 
 	public function testCreateFileMapping() {
-		return assert(shouldFail({
+		return assert(attempt({
 			mapping = mem.FileMapping.create("./test.db", "test-map", FILE_SIZE);
 		}));
 	}
 
 	public function testCreateFileView() {
-		return assert(shouldFail({
-			view = mapping.createView(0, haxe.Int64.fromFloat(Math.pow(2, 13)));
+		return assert(attempt({
+			view = mapping.createView(0, Std.int(Math.pow(2, 13)) );
 		}));
 	}
 
 	public function testWriteToView() {
-		return assert(shouldFail({
+		return assert(attempt({
 
 			view.write(haxe.io.Bytes.ofString("some data"));
 		}));
 	}
 
 	public function testPersistToView() {
-		return assert(shouldFail({
+		return assert(attempt({
 
 			view.persist();
 		}));
 	}
 
 	public function testReadView() {
-		return assert(shouldFail(view.read().toString() == 'some data'));
+		return assert(attempt(view.read().toString() == 'some data'));
 	}
 }

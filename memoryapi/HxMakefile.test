@@ -1,5 +1,5 @@
 -lib Kernel32
 -lib advapi32
--src memory.c
--o memory.dll
+-src memapi.c
+-o memapi.dll
 -win-api

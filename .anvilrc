@@ -1,7 +1,7 @@
 {
     "windows": [
         {
-            "ammerLib": "memory",
+            "ammerLib": "memapi",
             "nativePath": "memoryapi",
             "hxMakefile": "HxMakefile.test",
             "verbose": true
