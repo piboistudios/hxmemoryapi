@@ -8,8 +8,9 @@ class MemLib extends Library<"memapi"> {
     public static function open_file_mapping(mapname:String):LibFileMapping;
     public static function remap_view(map:LibFileMapping, view:LibMapView):Bool;
     public static function mapview_stub():LibMapView;
-    public static function write_to_view(view:LibMapView, data:haxe.io.Bytes, len:SizeOf<"data">):Bool;
-    public static function read_view(view:LibMapView, dLen:SizeOfReturn):haxe.io.Bytes;
+    public static function write_to_view(view:LibMapView, offset_hi:UInt, offset_lo:UInt, data:haxe.io.Bytes, len:SizeOf<"data">):Bool;
+    public static function read_view(view:LibMapView, offset_hi:UInt, offset_lo:UInt, dLen:SizeOfReturn):haxe.io.Bytes;
+    public static function get_sys_granularity():UInt;
 }
 @:ammer.nativePrefix("mem_")
 class LibFileMapping extends Pointer<"mem_mapping_t", MemLib> {

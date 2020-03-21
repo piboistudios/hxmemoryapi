@@ -44,9 +44,10 @@ extern "C" {
 	LIB_EXPORT mem_mapview_p mem_create_view(mem_mapping_p map, int offset_hi, int offset_lo, size_t size);
 	LIB_EXPORT mem_mapview_p mem_mapview_stub();
 	LIB_EXPORT bool mem_remap_view(mem_mapping_p map, mem_mapview_p view);
-	LIB_EXPORT bool mem_write_to_view(mem_mapview_p view, unsigned char* bytes, size_t len);
-	LIB_EXPORT char* mem_read_view(mem_mapview_p view, size_t *read);
+	LIB_EXPORT bool mem_write_to_view(mem_mapview_p view, int offset_hi, int offset_lo, unsigned char *bytes, int len);
+	LIB_EXPORT char *mem_read_view(mem_mapview_p view, int offset_hi, int offset_lo, size_t *read);
 	LIB_EXPORT bool mem_persist_view(mem_mapview_p view);
+	LIB_EXPORT DWORD mem_get_sys_granularity();
 #ifdef __cplusplus
 }
 #endif

@@ -14,13 +14,14 @@ class MapView {
         if(viewHandle.mapview_errored())
             throw viewHandle.mapview_get_errors().asErrorMsg();
     }
-    public function write(bytes:haxe.io.Bytes):Bool {
-        final ret = MemLib.write_to_view(viewHandle, bytes);
+    public function write(bytes:haxe.io.Bytes, offset:haxe.Int64):Bool {
+        trace('bytes: ${bytes.length}');
+        final ret = MemLib.write_to_view( viewHandle, offset.high, offset.low, bytes);
         checkErrors(viewHandle);
         return ret;
     }
-    public function read():haxe.io.Bytes {
-        final ret = MemLib.read_view(viewHandle);
+    public function read(offset:haxe.Int64):haxe.io.Bytes {
+        final ret = MemLib.read_view(viewHandle, offset.high, offset.low);
         checkErrors(viewHandle);
         return ret;
     }
@@ -29,4 +30,5 @@ class MapView {
         checkErrors(viewHandle);
         return ret;
     }
+    
 }

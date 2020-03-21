@@ -1,3 +1,8 @@
+*.hdll
+*.exp
+*.dll
+*.ammer
+*.db
 workspace.hxml
 native_extensions/**
 native_extensions/**/**
@@ -23,5 +28,7 @@ bin/**
 */*/*.lib
 */*/*.pdb
 */*/*.ipdb
-*/*/*.obj
-./anvil.lastbuild.txt
+*/*/*.obj
+
+./anvil.lastbuild.txt
+

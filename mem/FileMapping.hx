@@ -26,7 +26,8 @@ class FileMapping {
         checkErrors(handle);
         return new FileMapping(null, mapName, -1, handle);
     }
-    public function createView(offset:haxe.Int64, size:UInt):mem.MapView  @:privateAccess {
+    public function createView(offset:haxe.Int64, size:Null<UInt> = null):mem.MapView  @:privateAccess {
+        if(size == null) size = mem.MemLib.get_sys_granularity();
         final handle:LibMapView = mapHandle.create_view(offset.high, offset.low, size);
         mem.MapView.checkErrors(handle);
         return new mem.MapView(offset, size, handle);

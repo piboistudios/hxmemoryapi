@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.hxhtml": "html",
+        "*.hxcs": "csharp",
+        "*.hxxml": "xml",
+        "*.hxcml": "xml",
+        "*.hxcxml": "xml",
+        "*.out": "json",
+        "hxmem.h": "c",
+        "memory.h": "c"
+    }
+}
